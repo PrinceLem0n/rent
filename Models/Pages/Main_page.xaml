@@ -1,0 +1,150 @@
+﻿<Page x:Class="Rent.Models.Pages.Main_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rent.Models.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Main_page" Loaded="Page_Loaded">
+    <Grid Background="Black">
+        <DataGrid x:Name="Datagrid"
+                  HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto"
+                  ColumnWidth="*"
+                  MaxColumnWidth="167"
+                  IsReadOnly="True"
+                  BorderBrush="Black"
+                  CanUserSortColumns="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  HorizontalGridLinesBrush="#6b6b6b"
+                  VerticalGridLinesBrush="#6b6b6b"
+                  Background="#121212"
+                  Height="200"
+                  Width="500"
+                  MaxWidth="500"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Center"
+                  Margin="0,50,0,0"
+                  SelectionChanged="Datagrid_SelectionChanged" LostFocus="Datagrid_LostFocus">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#262525"/>
+                    <Setter Property="Foreground" Value="#bab8b8"/>
+                    <Setter Property="Height" Value="auto"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowHeaderStyle>
+                <Style TargetType="DataGridRowHeader">
+                    <Setter Property="Background" Value="#121212"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </DataGrid.RowHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#121212"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Grid Height="20" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,25,0,0">
+            <Grid Height="20" Width="170" Background="#121212" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,1,0">
+                <TextBox x:Name="Search_tb" Background="#121212" BorderThickness="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" FontSize="15" VerticalAlignment="Top" Height="20" Width="150" TextChanged="Search_tb_TextChanged" GotFocus="Search_tb_GotFocus" LostFocus="Search_tb_LostFocus"/>
+                <Image Source="/Img/search_white.png" Height="20" Width="20" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Btn_Grid" Height="120" Width="460" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,263,0,0">
+            <Button x:Name="AddInBasket_btn" Content="Добавить в корзину" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="170" Click="AddInBasket_btn_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#00a816"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#008a12"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="AddEquipment_btn" Content="Добавить новый товар" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="170" Click="AddEquipment_btn_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#00a816"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#008a12"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <TextBox x:Name="Count_tb" Background="#121212" Foreground="White" BorderThickness="0" HorizontalAlignment="Right" TextWrapping="Wrap" Text="" FontSize="15" VerticalAlignment="Center" Height="20" Width="30" Margin="0,0,45,0" LostFocus="Count_tb_LostFocus"/>
+            <Grid x:Name="EditDeleteGameGrid" Width="120" Height="120" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button x:Name="Edit" Content="Изменить" Height="50" Width="120" VerticalAlignment="Top" Click="Edit_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#00a816"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#008a12"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="Delete" Content="Удалить" Height="50" Width="120" VerticalAlignment="Bottom" Click="Delete_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#00a816"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#008a12"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
